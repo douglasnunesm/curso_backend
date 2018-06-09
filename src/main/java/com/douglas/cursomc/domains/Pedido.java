@@ -20,7 +20,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "PEDIDO")
@@ -35,7 +34,6 @@ public class Pedido implements Serializable{
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date instante;
 
-	@JsonManagedReference
 	@OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
 	private Pagamento pagamento;
 
@@ -43,7 +41,6 @@ public class Pedido implements Serializable{
 	@JoinColumn(name = "ID_ENDERECO_ENTREGA")
 	private Endereco endereco;
 
-	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "ID_CLIENTE")
 	private Cliente cliente;
